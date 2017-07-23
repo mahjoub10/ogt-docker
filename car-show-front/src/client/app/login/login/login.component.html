@@ -1,0 +1,60 @@
+<div id="login-component" class="modal fade login-popUp" style="border-radius: 0;" tabindex="-1" data-width="760">
+  <div class="modal-header" style="border: none">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6 login-form">
+        <div class="">
+
+          <div class="portlet searchForm">
+            <div class="portlet-body form">
+              <!-- BEGIN FORM-->
+              <form action="#" class="form-horizontal">
+                <div class="form-body">
+                  <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                    <div class="col-md-12">
+                      <input name="userName" [(ngModel)]="userName" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                        placeholder="Login">
+                    </div>
+                  </div>
+                  <div class="form-group" [ngClass]="{'has-error': passwordHasError}" style="margin-bottom: 17px;">
+                    <div class="col-md-12">
+                      <input name="password" [(ngModel)]="password" (change)="inputChange($event)" type="password" class="form-control input-circle"
+                        placeholder="********">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <a href="javascript:;" id="btn-login-form" (click)="loginClick()" class="btn btn-circle btn-sm orange form-submit-btn connect-btn-form"> 
+                        Connecter
+                       </a>
+                      <app-loader id="login-loader" style="display:none"></app-loader>
+                    </div>
+                  </div>
+                </div>
+                <div class="error-msg" [ngClass]="{'form-error': formErrorMsg?.length > 0}">
+                  {{formErrorMsg}}
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 inscrire-form">
+        <div class="">
+          <h4 style="font-size: 24px;">Subscribe</h4>
+          <p>
+            I you dont have an account </p>
+          <p>
+            <a class="btn btn-circle orange btn-sm form-submit-btn inscrire-form-btn customBTN" data-hide="responsive" data-target="#subscribe-component"
+              data-toggle="modal"> Sign up  </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

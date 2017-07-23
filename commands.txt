@@ -1,0 +1,70 @@
+
+###################################USING SWARM###################
+//create 6 virtual machine using docker-machine
+docker-machine create --driver virtualbox mgr1
+docker-machine create --driver virtualbox mgr2
+docker-machine create --driver virtualbox mgr3
+docker-machine create --driver virtualbox wrk1
+docker-machine create --driver virtualbox wrk2
+docker-machine create --driver virtualbox wrk3
+
+//connect to each machine
+docker-machine ssh machine-name
+run docker —version inside the machine to be sure that everything went well.
+
+//install docker-compose 
+* sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)"
+sudo chmod +x /usr/local/bin/docker-compose
+
+//copy docker- stack file  to docker-machine
+Docker-Machine sap -r ./ogt-docker-workshop/docker-stack.yml mgr1:/home/docker/
+
+//init swarm cluster
+docker swarm init  --advertise-addr 192.168.99.100:2377 --listen-addr 192.168.99.100:2377
+
+  docker swarm join \
+    --token token \ 192.168.99.100:2377 --advertise-addr 192.168.99.105:2377 --listen-addr 192.168.99.105:2377
+
+//add node as manager
+docker swarm join-token manager
+
+//add node as worker
+docker swarm join-token worker
+
+//deploy stack
+ docker stack deploy --compose-file docker-stack.yml ogtdocker
+
+
+//add visualiser
+docker service create \
+  --name=viz \
+  --publish=8080:8080/tcp \
+  --constraint=node.role==manager \
+  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+  dockersamples/visualizer
+
+
+
+###################################USING KUBERNETTES###################
+
+//create cluster
+gcloud container clusters create —num-nodes=6 oft-docker
+ 
+
+//create replication controller
+Kubectl create -f ./kubernettes
+
+//scale front
+kubectl scale --replicas=6 rcfrontend
+
+//decribe pods
+Kubectl describe pod back-9cktz
+
+//access kubernettes pod
+Kubectl exec -ti  name /bin/bash
+
+//get IP address
+Hostname -I
+
+//Kubectl upate image
+Kubectl rolling-update  rc —-image=name  —update-period=5s

@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mongodb
+  labels: 
+    visualize: "true"
+    name: mongodb
+spec:
+  replicas: 1
+  selector: 
+    name: mongodb
+  template:
+    metadata:
+      labels:
+        visualize: "true"
+        app: mongodb
+        version: "0.0.1"
+        uses: mongodb
+        name: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:3.4.3
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 27017

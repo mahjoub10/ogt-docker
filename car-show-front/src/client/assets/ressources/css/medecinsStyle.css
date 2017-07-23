@@ -1,0 +1,65 @@
+.login .content.loginMedecin{
+    background: #fff;
+}
+.todo-container .todo-tasks-container {
+    padding: 30px 20px;
+    float: left;
+    width: 100%;
+}
+.operationDayTimeContainer.col-md-12 {
+    margin-bottom: 14px;
+}
+.dayTitle {
+    
+    float: left;
+    padding-bottom: 15px;
+      padding-top: 0;
+}
+.dayTitle span {
+    font-size: 13px;
+}
+.slotAvailable {
+    width: 100%;
+    float: left;
+        padding-top: 5px;
+}
+a.btn.btn-circle.orange.btn-sm.addPeriod {
+    float: left;
+    margin-top: 15px;
+    background: hsl(204, 64%, 58%);
+    color: #fff;
+    border-radius: 5px !important;
+}
+@media (max-width: 991px){
+    .responsive-toggler{
+        display: none !important;
+    }
+.page-header.navbar .page-logo img {
+    margin-left: 4px!important;
+    width: 191px !important;
+    padding-top: 10px;
+}
+}
+@media (max-width: 767px){
+    .page-header.navbar .page-top {
+    padding: 0;
+    display: block;
+    clear: initial !important;
+    width: auto !important;
+}
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-notification .dropdown-menu {
+    margin-right: 0 !important;
+}
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-notification .dropdown-menu:after, .page-header.navbar .top-menu .navbar-nav>li.dropdown-notification .dropdown-menu:before {
+    margin-right: 0 !important;
+} 
+}
+
+@media (max-width: 360px){
+
+.page-header.navbar .page-logo img {
+    margin-left: 4px!important;
+    width: 123px !important;
+    padding-top: 19px;
+}
+}

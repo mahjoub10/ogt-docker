@@ -1,0 +1,234 @@
+.m-t-120 {
+  margin-top: 120px!important;
+}
+
+
+.car {
+    background-color:#f3f5f7;
+    width: 60% ;
+    margin-top:20px 
+    
+}
+
+.car:hover {
+  background:  #87CEEB ;
+}
+
+.info   {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    padding-top:2;
+}
+
+.photos {
+    padding:20px ;
+}
+.car .name {
+  vertical-align: top;
+  font-size: 16px;
+  font-family: 'Times New Roman' ;
+  font-weight: bold;
+  margin-top: 1 ;
+}
+
+.car .date {
+  float: right ;
+  padding-bottom: 0;
+}
+
+.creator {
+margin: 0
+}
+
+.SearchContentPanel {
+  overflow: scroll;
+}
+.BG-filter {
+  width: 100%;
+  height: 66%;
+  background: -webkit-linear-gradient(transparent, rgba(42, 114, 162, 0.47));
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(42, 114, 162, 0.47)));
+  background: linear-gradient(transparent, rgba(42, 114, 162, 0.62));
+  bottom: 0;
+  position: absolute;
+}
+
+#result .table.table-light>tbody>tr>td .user-pic {
+  width: 30px
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .filter-option,
+.bootstrap-select.btn-group .dropdown-menu li {
+  text-transform: capitalize;
+}
+
+.no-slots-info {
+  text-align: center;
+  margin-left: 30px;
+  margin-top: 5px;
+  color: #ff513f;
+  font-size: 16px;
+}
+
+.no-slots-info small {
+  font-size: 12px;
+  color: #013867;
+}
+
+.doc-address {
+  cursor: pointer;
+  padding: 10px 15px 1px;
+  border-radius: 5px;
+}
+
+.doc-address.active {
+  background: rgba(156, 156, 156, 0.24);
+}
+
+.detailsContent .profile-userpic img {
+  border-radius: 100%!important;
+  border: solid 3px #e6e6e6;
+  height: 115px;
+}
+
+.detailsContent .profile-usertitle-job {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #428bca;
+}
+
+.adresse-title {
+  color: #428bca;
+  font-weight: 600;
+}
+
+.validationPanel {
+  background: #56a6db;
+  margin-bottom: 14px;
+}
+
+.validationPanel p {
+  color: #fff;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.ValidateButtons {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.ValidateButtons .orange {
+  background: #ffffff !important;
+  color: #56a6db !important;
+}
+
+.detailsContent .profile-usertitle-name {
+  color: #080808;
+  font-size: 16px;
+}
+
+
+/*result card view*/
+
+.list-view-btn {
+  background-image: url(assets/ressources/img/list-view.png) !important;
+  border: 0;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 30px;
+  height: 27px;
+  opacity: .4;
+}
+
+.card-view-btn {
+  background-image: url(assets/ressources/img/card-view.png) !important;
+  border: 0;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 30px;
+  height: 27px;
+  opacity: .4;
+}
+
+.list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+  border-color: #f3f5f7;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.list-group-item {
+  padding: 10px 5px;
+}
+
+.card-item {
+  padding-right: 0;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.card-item .card-name {
+  font-weight: 600;
+}
+
+.card-item .card-specialty {
+  color: #4FA1D9 !important;
+}
+
+.avatar {
+  position: relative;
+  display: block;
+  border-radius: 500px;
+  white-space: nowrap;
+  width: 50px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.avatar img {
+  border-radius: 500px;
+  width: 50px;
+  height: 50px;
+  border: solid 1px #4FA1D9;
+}
+
+.text-ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+
+.clear {
+  display: block;
+  overflow: hidden;
+}
+
+#ddl-languages {
+  text-transform: capitalize;
+}
+
+

@@ -1,0 +1,12 @@
+.creator {
+    border:none;
+    background-color:#f3f5f7;
+    margin-top:10%;
+    border: 3px;
+    border-radius: 25px;
+}
+
+.creator > pre  {
+    border:none;
+    background-color: #f3f5f7;
+}

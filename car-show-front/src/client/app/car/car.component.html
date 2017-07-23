@@ -1,0 +1,165 @@
+<section id="intro" class="m-t-120">
+<div class="">
+  <div class="container primary-section-container">
+    <div class="detailsContent">
+      <div class="row">
+        <div class="col-md-6 login-form">
+          <div class="">
+
+            <div class="portlet searchForm">
+              <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal">
+                  <div class="form-body">
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-12">
+                        <input name="name" [(ngModel)]="car.name" type="text" class="form-control input-circle" placeholder="name">
+                      </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-6">
+                        <select name="brand" id="ddl-languages" [(ngModel)]="car.brand" class="bs-select form-control input-circle" data-live-search="true"
+                          (change)="onChange($event.target.value)" data-size="8">
+                     <option disabled hidden [value]="selectUndefinedOptionValue">Brand</option>
+                      <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
+                    </select>
+                      </div>
+                      <div class="col-md-6">
+                        <select id="ddl-languages" name="model" [(ngModel)]="car.model" class="bs-select form-control input-circle" [disabled]="!selectedBrand"
+                          data-live-search="true" data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Model</option>
+                      <option *ngFor="let model of models" value="{{model}}">{{model}}</option>
+                    </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-6">
+                        <select id="ddl-languages" name="miles" [(ngModel)]="car.miles" class="bs-select form-control input-circle" data-live-search="true"
+                          data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Miles</option>
+                      <option *ngFor="let mile of miles" value="{{mile}}">{{mile}}</option>
+                    </select>
+                      </div>
+                      <div class="col-md-6">
+                        <input name="cylinders" [(ngModel)]="car.Cylindes" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Cylinders">
+                      </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-6">
+                        <input name="displacement" [(ngModel)]="car.displacement" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Displacement">
+                      </div>
+                      <div class="col-md-6">
+                        <input name="horsepower" [(ngModel)]="car.horsepower" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Horsepower">
+                      </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-6">
+                        <input name="weight" [(ngModel)]="car.weight" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Weight">
+                      </div>
+                      <div class="col-md-6">
+                        <input name="acceleration" [(ngModel)]="car.acceleration" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Acceleration">
+                      </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-6">
+                        <select id="ddl-languages" name="year" [(ngModel)]="car.year" class="bs-select form-control input-circle" data-live-search="true"
+                          data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Year</option>
+                      <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                    </select>
+                      </div>
+                      <div class="col-md-6">
+                        <select name="gearbox" [(ngModel)]="car.gearbox" class="bs-select form-control input-circle" data-live-search="true" data-size="8">
+                     <option disabled hidden [value]="selectUndefinedOptionValue">Gearbox</option>
+                      <option value="AUTOMATIC" selected>AUTOMATIC</option>
+                       <option value="MANUAL">MANUAL</option>
+                    </select>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-12">
+                        <input name="origin" [(ngModel)]="car.origin" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Origin">
+                      </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': userNameHasError}" style="margin-bottom: 17px;">
+                      <div class="col-md-12">
+                        <input name="description" [(ngModel)]="car.description" (change)="inputChange($event)" type="text" class="form-control input-circle"
+                          placeholder="Description">
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="form-actions">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <a href="javascript:;" id="btn-add-form" (click)="loginClick()" class="btn btn-circle btn-sm orange form-submit-btn connect-btn-form"> 
+                        Add
+                       </a>
+                        <app-loader id="login-loader" style="display:none"></app-loader>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="error-msg" [ngClass]="{'form-error': formErrorMsg?.length > 0}">
+                    {{formErrorMsg}}
+                  </div>
+                </form>
+                <!-- END FORM-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 login-form upload-form">
+          <div class="portlet searchForm">
+            <h4 style="font-size: 24px;">Upload images</h4>
+            <div class="portlet-body form">
+              <div>
+                <h3>Select files</h3>
+                <input type="file" ng2FileSelect [uploader]="uploader" multiple /><br/>
+              </div>
+              <div>
+
+                <table class="table table-nonfluid" *ngIf="uploader?.queue?.length !==0 ">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of uploader.queue">
+                      <td><strong>{{ item?.file?.name }}</strong></td>
+                      <td nowrap>
+                        <button type="button" class="btn btn-warning btn-xs" (click)="item.remove()">
+                            <span class="glyphicon glyphicon-trash"></span> Remove
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <app-loader id="car-loader" style="display:none"></app-loader>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>

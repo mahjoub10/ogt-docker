@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+  <meta charset="utf-8" />
+  <base href="<%= APP_BASE %>">
+  <title>
+    <%= APP_TITLE %>
+  </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <!-- BEGIN GLOBAL MANDATORY STYLES -->
+  <link href='http://fonts.googleapis.com/css?family=Hind:400,500,300,600,700' rel='stylesheet' type='text/css'>
+  <link href="assets/ressources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/css/components-rounded.css" rel="stylesheet" id="style_components" type="text/css" />
+  <link href="assets/ressources/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/css/plugins.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+  <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+  <link href="assets/ressources/css/animate.css" rel="stylesheet">
+  <!-- END PAGE LEVEL PLUGIN STYLES -->
+  <!-- BEGIN THEME STYLES -->
+  <link href="assets/ressources/css/layout.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/bootstrap-datepaginator/bootstrap-datepaginator.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/css/custom.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/css/profile.css" rel="stylesheet" type="text/css" />
+  <link href="assets/ressources/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
+  <!-- END THEME STYLES -->
+  <link href="assets/ressources/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-on-scroll" class to the body element to set fixed header layout -->
+
+<body class="page-header-fixed">
+  <!-- BEGIN MAIN LAYOUT -->
+
+  <car-app>
+    <div id="app-loading">
+    </div>
+  </car-app>
+
+  <script>
+    // Fixes undefined module function in SystemJS bundle
+    function module() {}
+
+  </script>
+
+  <!-- shims:js -->
+  <!-- endinject -->
+
+  <% if (BUILD_TYPE === 'dev') { %>
+    <script src="<%= APP_BASE %>app/system-config.js"></script>
+    <% } %>
+
+      <!-- libs:js -->
+      <!-- endinject -->
+
+      <!-- inject:js -->
+      <!-- endinject -->
+
+      <% if (BUILD_TYPE === 'dev') { %>
+        <script>
+          System.import('<%= BOOTSTRAP_MODULE %>')
+            .catch(function (e) {
+              console.error(e.stack || e,
+                'Not expecting this error? Report it at https://github.com/mgechev/angular-seed/issues');
+            });
+
+        </script>
+        <% } %>
+
+          <script src="assets/ressources/js/jquery.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/jquery.backstretch.min.js" type="text/javascript"></script>
+
+          <script src="assets/ressources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/app.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/components-bootstrap-select.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/moment.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/typeahead.bundle.js" type="text/javascript"></script>
+
+          <script src="assets/ressources/js/scriptloader.js" type="text/javascript"></script>
+          <script src="assets/ressources/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+          <script src="assets/ressources/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/ui-extended-modals.min.js" type="text/javascript"></script>
+
+          <script src="assets/ressources/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+          <script src='assets/ressources/fullcalendar/lang/fr.js'></script>
+          <script src="assets/ressources/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+
+          <script src="assets/ressources/js/calendar.js" type="text/javascript"></script>
+          <script src="assets/ressources/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/layout.js" type="text/javascript"></script>
+
+          <script src="assets/ressources/js/jquery.datetimepicker.full.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/components-date-time-pickers.min.js" type="text/javascript"></script>
+          <script src="assets/ressources/js/jquery.googlemap.js" type="text/javascript"></script>
+          <script src="assets/ressources/bootstrap-datepaginator/bootstrap-datepaginator.min.js" type="text/javascript"></script>
+          <!--script src="assets/ressources/step/js/scripts.js"></script-->
+          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyDP3axBfiMCuP_1RKBMjX33VoP7gc1YqQ4"></script>
+
+</body>
+<!-- AIzaSyDP3axBfiMCuP_1RKBMjX33VoP7gc1YqQ4 -->
+
+</html>

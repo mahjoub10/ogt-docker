@@ -1,0 +1,26 @@
+
+ target/
+!.mvn/wrapper/maven-wrapper.jar
+
+car-show-back/.idea
+car-show-back/*.iws
+car-show-back/*.iml
+car-show-back/target
+car-show-back/data
+
+car-show-front/node_module
+car-show-front/*.js
+
+car-show-front/system-config.js*
+!car-show-front/bs-config.js
+car-show-front/app/**/*.js
+car-show-front/app/**/*.map
+car-show-front/node_modules
+car-show-front/jspm_packages
+car-show-front/bower_components
+car-show-frontaot/*
+car-show-front/dist/*
+car-show-front/yarn.lock
+
+*.DS_Store
+*.log

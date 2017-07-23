@@ -1,0 +1,163 @@
+<div class="modaldetails">
+  <div class="container">
+    <div class="detailsContent" *ngIf="selectedCar">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- BEGIN PROFILE SIDEBAR -->
+          <div class="profile-sidebar mobile">
+            <!-- PORTLET MAIN -->
+          </div>
+          <div class="profile-sidebar creator" >
+              <pre>First Name :{{selectedCar.creatorFirstName}} </pre>
+              <pre>Last name :{{selectedCar.creatorLastName}}</pre>
+              <pre>Email :{{selectedCar.creatorEmail}}</pre>
+              <pre>Mobile :{{selectedCar.creatorMobile}}</pre>
+              <pre>Creation date :{{selectedCar.creationDate | date: 'dd/MM/yyyy hh:mm:ss'}}</pre>
+              <pre>Last update : {{selectedCar.modificationDate | date: 'dd/MM/yyyy hh:mm:ss' }}</pre>
+          </div>
+          <!-- END BEGIN PROFILE SIDEBAR -->
+          <!-- BEGIN PROFILE CONTENT -->
+          <div class="profile-content">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="portlet light prise-de-rendezvous">
+                  <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                      <i class="icon-globe theme-font hide"></i>
+                      <span class="caption-subject font-blue-madison bold uppercase">{{selectedCar.name}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+                        <slide *ngFor="let photo of selectedCar.photos; let index=index" [active]="selectedCar.photos.active">
+                          <img [src]="photo" style="margin:auto;">
+
+                          <div class="carousel-caption">
+                            <h3 style="background-color: transparent;color: white;">Slide {{index + 1}}</h3>
+                          </div>
+                        </slide>
+                      </carousel>
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <div class="portlet light ">
+                  <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                      <i class="icon-globe theme-font hide"></i>
+                      <span class="caption-subject font-blue-madison bold uppercase">Détails</span>
+                    </div>
+                  </div>
+                  <div class="portlet-body">
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Brand
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.brand}}
+                      </div>
+                    </div>
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Model
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.model}}
+                      </div>
+                    </div>
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        origin
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.origin}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Gearbox
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.gearbox}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Year
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.year}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Miles
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.miles}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Cylinders
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.cylinders}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Displacement
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.displacement}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Horsepower
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.horsepower}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Weight
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.weight}}
+                      </div>
+                    </div>
+
+                    <div class="row detailsRow">
+                      <div class="col-md-4 details-title">
+                        Acceleration
+                      </div>
+                      <div class="col-md-8 details-text">
+                        {{selectedCar.acceleration}}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END PROFILE CONTENT -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

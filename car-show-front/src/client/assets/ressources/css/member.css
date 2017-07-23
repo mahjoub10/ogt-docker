@@ -1,0 +1,57 @@
+table.dataTable thead th, table.dataTable thead td {
+    padding: 10px 18px !important;
+    border-bottom: 1px solid #111 !important;
+    font-weight: 600;
+    font-size: 13px;
+    color: #93a2a9;
+    font-family: "Open Sans", sans-serif;
+    border: 0;
+    border-bottom: 1px solid #F2F5F8 !important;
+    border: none !important;
+}
+
+table.dataTable tbody td, table.dataTable tbody th {
+    position: relative;
+    border: 0;
+    border-bottom: 1px solid #F2F5F8 !important;
+    color: #8896a0;
+    vertical-align: middle;
+    border: none !important;
+}
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    border-bottom-width: 0;
+    border: 0;
+    border-bottom: 1px solid #F2F5F8;
+    color: #8896a0;
+    vertical-align: middle;
+}
+.table.table-light > tbody > tr > td.fit {
+    background: #fff !important;
+}
+.table.table-light > thead > tr > th {
+    border-bottom: 1px solid #F2F5F8 !important;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #fff !important;
+}
+.table.table-light > tbody > tr > td {
+    border-bottom: 1px solid #F2F5F8 !important;
+    padding-left: 17px;
+}
+.table-scrollable {
+    border:0 !important;
+}
+.fit{
+        width: 1px;
+    padding-right: 3px;
+}
+.fit img{
+        display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}

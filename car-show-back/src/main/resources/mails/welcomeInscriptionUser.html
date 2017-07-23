@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title th:text="#{email.welcome.title}">New inscription</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&amp;subset=latin,cyrillic,greek"
+          rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        /* Resets: see reset.css for details */
+        .ReadMsgBody {
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        .ExternalClass {
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        .ExternalClass, .ExternalClass p, .ExternalClass span,
+        .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 100%;
+        }
+
+        #outlook a {
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+        }
+
+        html {
+            width: 100%;
+        }
+
+        table {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-spacing: 0;
+        }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        table p {
+            margin: 0;
+        }
+
+        br, strong br, b br, em br, i br {
+            line-height: 100%;
+        }
+
+        div, p, a, li, td {
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 100% !important;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        span a {
+            text-decoration: none !important;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        img {
+            height: auto !important;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        .yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited,
+        .yshortcuts a:hover, .yshortcuts a span {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        /*mailChimp class*/
+        .default-edit-image {
+            height: 20px;
+        }
+
+        ul {
+            padding-left: 10px;
+            margin: 0;
+        }
+
+        .tpl-repeatblock {
+            padding: 0px !important;
+            border: 1px dotted rgba(0, 0, 0, 0.2);
+        }
+
+        .tpl-content {
+            padding: 0px !important;
+        }
+
+        @media only screen and (max-width: 800px) {
+            table[style*="max-width:800px"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                clear: both;
+            }
+
+            table[style*="max-width:800px"] img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 640px) {
+            /* mobile setting */
+            table[class="container"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                text-align: center !important;
+                clear: both;
+            }
+
+            td[class="container"] {
+                width: 100% !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                clear: both;
+            }
+
+            table[class="full-width"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                clear: both;
+            }
+
+            table[class="full-width-center"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            table[class="force-240-center"] {
+                width: 240px !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            table[class="auto-center"] {
+                width: auto !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            *[class="auto-center-all"] {
+                width: auto !important;
+                max-width: 75% !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            *[class="auto-center-all"] * {
+                width: auto !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            table[class="col-3"], table[class="col-3-not-full"] {
+                width: 30.35% !important;
+                max-width: 100% !important;
+            }
+
+            table[class="col-2"] {
+                width: 47.3% !important;
+                max-width: 100% !important;
+            }
+
+            *[class="full-block"] {
+                width: 100% !important;
+                display: block !important;
+                clear: both;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            /* image */
+            td[class="image-full-width"] img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+            }
+
+            /* helper */
+            table[class="space-w-20"] {
+                width: 3.57% !important;
+                max-width: 20px !important;
+                min-width: 3.5% !important;
+            }
+
+            table[class="space-w-20"] td:first-child {
+                width: 3.5% !important;
+                max-width: 20px !important;
+                min-width: 3.5% !important;
+            }
+
+            table[class="space-w-25"] {
+                width: 4.45% !important;
+                max-width: 25px !important;
+                min-width: 4.45% !important;
+            }
+
+            table[class="space-w-25"] td:first-child {
+                width: 4.45% !important;
+                max-width: 25px !important;
+                min-width: 4.45% !important;
+            }
+
+            table[class="space-w-30"] td:first-child {
+                width: 5.35% !important;
+                max-width: 30px !important;
+                min-width: 5.35% !important;
+            }
+
+            table[class="fix-w-20"] {
+                width: 20px !important;
+                max-width: 20px !important;
+                min-width: 20px !important;
+            }
+
+            table[class="fix-w-20"] td:first-child {
+                width: 20px !important;
+                max-width: 20px !important;
+                min-width: 20px !important;
+            }
+
+            *[class="h-10"] {
+                display: block !important;
+                height: 10px !important;
+            }
+
+            *[class="h-20"] {
+                display: block !important;
+                height: 20px !important;
+            }
+
+            *[class="h-30"] {
+                display: block !important;
+                height: 30px !important;
+            }
+
+            *[class="h-40"] {
+                display: block !important;
+                height: 40px !important;
+            }
+
+            *[class="remove-640"] {
+                display: none !important;
+            }
+
+            *[class="text-left"] {
+                text-align: left !important;
+            }
+
+            *[class="clear-pad"] {
+                padding: 0 !important;
+            }
+        }
+
+        @media only screen and (max-width: 479px) {
+            /* mobile setting */
+            table[class="container"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 124px !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                text-align: center !important;
+                clear: both;
+            }
+
+            td[class="container"] {
+                width: 100% !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                text-align: center !important;
+                clear: both;
+            }
+
+            table[class="full-width"], table[class="full-width-479"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 124px !important;
+                clear: both;
+            }
+
+            table[class="full-width-center"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 124px !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            *[class="auto-center-all"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            *[class="auto-center-all"] * {
+                width: auto !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+                margin: 0 auto;
+                float: none;
+            }
+
+            table[class="col-3"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+            }
+
+            table[class="col-3-not-full"] {
+                width: 30.35% !important;
+                max-width: 100% !important;
+            }
+
+            table[class="col-2"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                clear: both;
+            }
+
+            *[class="full-block-479"] {
+                display: block !important;
+                width: 100% !important;
+                clear: both;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            /* image */
+            td[class="image-full-width"] img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                min-width: 124px !important;
+            }
+
+            td[class="image-min-80"] img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                min-width: 80px !important;
+            }
+
+            td[class="image-min-100"] img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                min-width: 100px !important;
+            }
+
+            /* halper */
+            table[class="space-w-20"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            table[class="space-w-20"] td:first-child {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            table[class="space-w-25"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            table[class="space-w-25"] td:first-child {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            table[class="space-w-30"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            table[class="space-w-30"] td:first-child {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            *[class="remove-479"] {
+                display: none !important;
+            }
+
+            table[width="595"] {
+                width: 100% !important;
+            }
+
+            img {
+                max-width: 280px !important;
+            }
+        }
+
+        a:active {
+            color: initial !important;
+        }
+
+        a:visited {
+            color: initial !important;
+        }
+
+        td ul {
+            list-style: initial;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        body {
+            background-color: #efefef;
+        }
+
+        .default-edit-image {
+            height: 20px;
+        }
+
+        tr.tpl-repeatblock, tr.tpl-repeatblock > td {
+            display: block !important;
+        }
+
+        .tpl-repeatblock {
+            padding: 0px !important;
+            border: 1px dotted rgba(0, 0, 0, 0.2);
+        }
+
+        table[width="595"] {
+            width: 100% !important;
+        }
+
+        a img {
+            border: 0 !important;
+        }
+
+        a:active {
+            color: initial !important;
+        }
+
+        a:visited {
+            color: initial !important;
+        }
+
+        .tpl-content {
+            padding: 0 !important;
+        }
+    </style>
+    <!--[if gte mso 15]>
+    <style type="text/css">
+        a {
+            text-decoration: none !important;
+        }
+
+        body {
+            font-size: 0;
+            line-height: 0;
+        }
+
+        tr {
+            font-size: 1px;
+            mso-line-height-alt: 0;
+            mso-margin-top-alt: 1px;
+        }
+
+        table {
+            font-size: 1px;
+            line-height: 0;
+            mso-margin-top-alt: 1px;
+        }
+
+        body, table, td, span, a {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+
+        a img {
+            border: 0 !important;
+        }
+    </style>
+    <![endif]-->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+</head>
+<body style="font-size:12px; width:100%; height:100%;">
+<table id="mainStructure" width="800" class="full-width" align="center" border="0" cellspacing="0" cellpadding="0"
+       style="background-color:#efefef; width:800px; max-width: 800px; margin: 0 auto; outline: 1px solid #efefef; box-shadow: 0px 0px 5px #E0E0E0;">
+    <!-- START LAYOUT-1 ( MENU BAR ) -->
+    <tbody>
+    <tr>
+        <td valign="top" align="center" class="container" style="background-color: #eceff1; ">
+            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container"
+                   style="background-color: #eceff1; min-width: 600px; margin: 0px auto; width: 600px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                <!-- start space -->
+                <tbody>
+                <tr>
+                    <td valign="top" height="50"
+                        style="height: 50px; font-size: 0px; line-height: 0; border-collapse: collapse;">&nbsp;</td>
+                </tr>
+                <!-- end space -->
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="560" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width"
+                               style="margin: 0px auto; width: 560px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                            <tbody>
+                            <tr>
+                                <td valign="top">
+                                    <table width="100%" align="center" class="full-width" border="0" cellpadding="0"
+                                           cellspacing="0" style="background-color: #307ecc;" height="86">
+                                        <!-- start space -->
+                                        <!--[if gte mso 9]>
+                                        <tr>
+                                            <td valign="top" align="center">
+                                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true"
+                                                        stroke="false"
+                                                        style="width:100%px; height:380px; background-repeat:no-repeat;">
+                                                    <v:fill type="frame" color="#191919"
+                                                            src="http://mailbuild.rookiewebstudio.com/item/64lm4Q4e/images/set14-bg1.jpg"></v:fill>
+                                                    <v:textbox style="mso-fit-shape-to-text:true; v-padding-auto:true;"
+                                                               inset="0,0,0,0">       <![endif]-->
+                                        <tbody>
+                                        <tr>
+                                            <td valign="top" height="100"
+                                                style="height: 60px;font-size: 0px;line-height: 0;border-collapse: collapse;">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <!-- end space -->
+                                        <!-- start box -->
+                                        <tr dup="0">
+                                            <td valign="" style="padding-bottom: 11px;">
+                                                <table width="250" align="center" border="0" cellpadding="0"
+                                                       cellspacing="0"
+                                                       style="margin: 0px auto;/* border: 3px solid rgb(255, 255, 255); */width: 477px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td valign="top" style="padding-left:10px; padding-right:10px;">
+                                                            <table width="100%" align="center" border="0"
+                                                                   cellpadding="0" cellspacing="0"
+                                                                   style="margin:0 auto;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                                <!-- start space -->
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td valign="top" height="30" style="height: 30px; font-size: 0px;
+             line-height: 0; border-collapse: collapse;">
+                                                                        <table width="auto" align="center" border="0"
+                                                                               cellspacing="0" cellpadding="0"
+                                                                               class="full-width-center" dir="ltr">
+                                                                            <tbody>
+                                                                            <tr style="
+    margin-bottom: 16px !important;
+">
+                                                                                <td align="center" valign="top"
+                                                                                    width="134" style="width: 134px;">
+                                                                                    <a href="#"
+                                                                                       style="text-decoration: none !important; font-size: inherit;">
+                                                                                        <img src="http://technetmedia.ch/agendasante/mail/images/logo-footer.png"
+                                                                                             width="134"
+                                                                                             style="max-width:240px;display: block !important;margin-bottom: 19px;"
+                                                                                             alt="set10-logo-top"
+                                                                                             border="0" hspace="0"
+                                                                                             vspace="0"/></a>
+                                                                                </td>
+                                                                            </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                <!-- end space -->
+                                                                <tr>
+                                                                    <td align="center"
+                                                                        style="font-size: 30px; color: rgb(255, 255, 255); font-weight: bold; text-align: center; font-family: 'Open Sans', Arial, Helvetica, sans-serif; word-break: break-word; line-height: 38px;">
+                                      <span style="font-weight: bold; text-decoration: none; color: rgb(255, 255, 255); font-size: inherit; line-height: 38px;">
+                                        <a href="#"
+                                           style="color: rgb(255, 255, 255);font-size: inherit;border-style: none;text-decoration: none !important;line-height: 38px;font-weight: normal;"
+                                           border="0">
+                                            Gratuit , immédiat et sécurisé</a>
+                                      </span>
+                                                                    </td>
+                                                                </tr>
+                                                                <!-- start space -->
+
+                                                                <!-- end space -->
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- end box -->
+                                        <!-- start space -->
+                                        <tr>
+                                            <td valign="top" height="80"
+                                                style="height: 53px;font-size: 0px;line-height: 0;border-collapse: collapse;">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <!-- end space -->
+                                        <!--[if gte mso 9]>        </v:textbox>        </v:rect>       </td></tr>
+                                        <![endif]-->
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- END LAYOUT-1 ( MENU BAR ) -->
+    <!-- START LAYOUT-2 ( BIG IMAGE ) -->
+    <tr>
+        <td valign="top" align="center" class="container" style="background-color: #eceff1; ">
+            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container"
+                   style="background-color: #eceff1; min-width: 600px; margin: 0px auto; width: 600px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                <tbody>
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="560" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width"
+                               style="margin: 0px auto; background-color: #ffffff; width: 560px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                            <!-- start space -->
+                            <tbody>
+                            <tr>
+                                <td valign="top" height="80"
+                                    style="height: 42px;font-size: 0px;line-height: 0;border-collapse: collapse;">
+                                    &nbsp;</td>
+                            </tr>
+                            <!-- end space -->
+                            <!-- start heading -->
+                            <tr dup="0">
+                                <td valign="top" style="padding-left:30px; padding-right:30px;">
+                                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0"
+                                           style="mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                        <tbody>
+                                        <!-- start space -->
+
+                                        <!-- end space -->
+                                        <tr>
+                                            <td align="left"
+                                                style="font-size: 14px;color: rgb(136, 136, 136);font-weight: normal;text-align: left;font-family: 'Open Sans', Arial, Helvetica, sans-serif;word-break: break-word;line-height: 22px;">
+                                                <table width="560" align="center" border="0" cellpadding="0"
+                                                       cellspacing="0" class="full-width"
+                                                       style="table-layout: fixed;margin: 0px auto;width: 470px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                                    <!-- start space -->
+                                                    <tbody><!-- end space --><!-- start heading/content -->
+                                                    <!-- end heading/content --><!-- start space --><!-- end space -->
+                                                    <!-- start image&content -->
+                                                    <tr dup="0">
+                                                        <td valign="top">
+                                                            <table width="100%" align="left" border="0" cellpadding="0"
+                                                                   cellspacing="0"
+                                                                   style="background-color: #ffffff; mso-table-lspace:0pt; mso-table-rspace:0pt;"
+                                                                   class="full-width">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td valign="top"
+                                                                        style="padding-left:20px; padding-right:20px;">
+                                                                        <table width="100%" align="left" border="0"
+                                                                               cellpadding="0" cellspacing="0"
+                                                                               class="full-width"
+                                                                               style="mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                                            <!-- start space -->
+                                                                            <tbody><!-- end space -->
+                                                                            <!-- start heading/content -->
+                                                                            <tr dup="0">
+                                                                                <td valign="top">
+                                                                                    <table width="100%" border="0"
+                                                                                           cellspacing="0"
+                                                                                           cellpadding="0"
+                                                                                           align="center"
+                                                                                           class="full-width"
+                                                                                           style="margin:0 auto;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                                                        <!-- start text -->
+                                                                                        <tbody>
+                                                                                        <tr>
+                                                                                            <td align="left"
+                                                                                                valign="top"
+                                                                                                style="font-size: 20px; color: rgb(51, 51, 51); font-weight: normal; text-align: left; font-family: 'Open Sans', Arial, Helvetica, sans-serif; word-break: break-word; line-height: 28px;">
+                                                                                                <span style="font-weight: bold; text-decoration: none; color: rgb(0, 159, 100); font-size: inherit; line-height: 32px;"><a
+                                                                                                        href="#"
+                                                                                                        style="font-weight: bold;color: rgb(48, 126, 204);font-size: inherit;border-style: none;text-decoration: none !important;line-height: 32px;"
+                                                                                                        border="0"><span
+                                                                                                        th:text="#{email.welcome.title}"/></a></span>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <!-- start space -->
+                                                                                        <tr>
+                                                                                            <td valign="top" height="20"
+                                                                                                style="height: 20px; font-size: 0px; line-height: 0; border-collapse: collapse;">
+                                                                                                &nbsp;</td>
+                                                                                        </tr>
+                                                                                        <!-- end space -->
+                                                                                        <tr>
+                                                                                            <td align="left"
+                                                                                                style="font-size: 14px; color: rgb(136, 136, 136); font-weight: 300; text-align: left; font-family: 'Open Sans', Arial, Helvetica, sans-serif; word-break: break-word; line-height: 22px;">
+                                  <span style="
+      text-decoration: none;color: rgb(136, 136, 136);
+             font-size: 16px;font-style: italic;line-height: 22px;"><span th:text="#{email.welcome.text1}"/> <span
+                                          th:text="#{email.welcome.text2}"/> <br/><br/>
+<span th:text="#{email.welcome.text3}"/> <span th:text="#{email.welcome.text4(${user.email})}"/><br/><br/>
+<span th:text="#{email.welcome.text5}"/> <span th:text="#{email.welcome.text6}"/></span>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <!-- start space -->
+                                                                                        <tr>
+                                                                                            <td valign="top" height="20"
+                                                                                                style="height: 20px; font-size: 0px; line-height: 0; border-collapse: collapse;">
+                                                                                                &nbsp;</td>
+                                                                                        </tr>
+                                                                                        <!-- end space --></tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <!-- end heading/content -->
+                                                                            <tr>
+                                                                                <td valign="top">
+                                                                                    <table width="100%" align="left"
+                                                                                           border="0" cellpadding="0"
+                                                                                           cellspacing="0"
+                                                                                           style="mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                                                        <tbody>
+                                                                                        <tr dup="0">
+                                                                                            <td valign="top">
+                                                                                                <table width="100%"
+                                                                                                       align="left"
+                                                                                                       border="0"
+                                                                                                       cellpadding="0"
+                                                                                                       cellspacing="0"
+                                                                                                       style="mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                                                                    <tbody>
+                                                                                                    <tr>
+                                                                                                        <td align="left"
+                                                                                                            style="font-size: 14px; color: rgb(136, 136, 136); font-weight: normal; text-align: left; font-family: 'Open Sans', Arial, Helvetica, sans-serif; word-break: break-word; line-height: 22px;">
+                                        <span style="text-decoration: none; color: rgb(51, 51, 51); font-size: 18px; font-weight: normal; line-height: 26px;">
+<span th:text="#{email.welcome.thank}"/><br/><span
+                                                style="text-decoration: none; color: rgb(136, 136, 136); font-size: 14px; font-weight: 300; font-style: italic; line-height: 22px;">L’équipe d’agendasante.swiss
+
+</span>
+                                        </span>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                <!-- start space -->
+                                                                <tr>
+                                                                    <td valign="top" height="30"
+                                                                        style="height: 44px;font-size: 0px;line-height: 0;border-collapse: collapse;">
+                                                                        &nbsp;</td>
+                                                                </tr>
+                                                                <!-- end space --></tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- end image&content --><!-- start space --><!-- end space -->
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- start space -->
+
+                                        <!-- end space -->
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- end heading -->
+                            <!-- start space -->
+
+                            <!-- end space -->
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- END LAYOUT-2 ( BIG IMAGE ) -->
+    <!-- START LAYOUT-3 ( BUTTON ) -->
+    <tr>
+        <td valign="top" align="center" class="container" style="background-color: #eceff1; ">
+            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container"
+                   style="background-color: #eceff1; min-width: 600px; margin: 0px auto; width: 600px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                <tbody>
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="560" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width"
+                               style="margin: 0px auto; width: 560px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                            <!-- start button -->
+                            <tbody>
+                            <tr dup="0">
+                                <td valign="top">
+                                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0"
+                                           style="background-color: #307ecc;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                        <!-- start space -->
+                                        <tbody>
+                                        <tr>
+                                            <td valign="top" height="20"
+                                                style="height: 20px; font-size: 0px; line-height: 0; border-collapse: collapse;">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <!-- end space -->
+
+                                        <!-- start space -->
+
+                                        <!-- end space -->
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- end button -->
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- END LAYOUT-3 ( BUTTON ) -->
+    <!-- START LAYOUT-4 ( CONTENT SOCIAL ) -->
+    <tr>
+        <td valign="top" align="center" class="container" style="background-color: #eceff1; ">
+            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container"
+                   style="background-color: #eceff1; min-width: 600px; margin: 0px auto; width: 600px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                <tbody>
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="560" align="center" border="0" cellspacing="0" cellpadding="0" class="container"
+                               style="margin: 0px auto; width: 560px;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                            <!-- start space -->
+                            <tbody>
+                            <tr>
+                                <td valign="top" height="40"
+                                    style="height: 40px; font-size: 0px; line-height: 0; border-collapse: collapse;">
+                                    &nbsp;</td>
+                            </tr>
+                            <!-- end space -->
+                            <tr dup="0">
+                                <td valign="top">
+                                    <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0"
+                                           style="mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                        <tbody>
+                                        <tr>
+                                            <td valign="middle">
+                                                <table width="auto" align="center" border="0" cellpadding="0"
+                                                       cellspacing="0"
+                                                       style="margin:0 auto;mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td align="center" valign="middle"
+                                                            style="padding-left: 3px; padding-right: 3px; width: 25px;"
+                                                            width="25">
+                                                            <a href="#"
+                                                               style="text-decoration: none !important; font-size: inherit; border-style: none;"
+                                                               border="0">
+                                                                <img src="http://technetmedia.ch/agendasante/mail/images/set13-social-facebook-gray.png"
+                                                                     width="25" alt="facebook"
+                                                                     style="max-width: 25px; display: block !important;"/></a>
+                                                        </td>
+                                                        <td align="center" valign="middle"
+                                                            style="padding-left: 3px; padding-right: 3px; width: 25px;"
+                                                            width="25">
+                                                            <a href="#"
+                                                               style="text-decoration: none !important; font-size: inherit; border-style: none;"
+                                                               border="0">
+                                                                <img src="http://technetmedia.ch/agendasante/mail/images/set13-social-twitter-gray.png"
+                                                                     width="25" alt="twitter"
+                                                                     style="max-width: 25px; display: block !important;"/></a>
+                                                        </td>
+
+
+                                                        <td align="center" valign="middle"
+                                                            style="padding-left: 3px; padding-right: 3px; width: 25px;"
+                                                            width="25">
+                                                            <a href="#"
+                                                               style="text-decoration: none !important; font-size: inherit; border-style: none;"
+                                                               border="0">
+                                                                <img src="http://technetmedia.ch/agendasante/mail/images/set13-social-youtube-gray.png"
+                                                                     width="25" alt="youtube"
+                                                                     style="max-width: 25px; display: block !important;"/></a>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- start space -->
+                                        <tr>
+                                            <td valign="top" height="20"
+                                                style="height: 20px; font-size: 0px; line-height: 0; border-collapse: collapse;">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <!-- end space -->
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <!-- start space -->
+                <tr>
+                    <td valign="top" height="30"
+                        style="height: 30px; font-size: 0px; line-height: 0; border-collapse: collapse;">&nbsp;</td>
+                </tr>
+                <!-- end space -->
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- END LAYOUT-5 ( CONTENT SOCIAL ) -->
+    </tbody>
+</table>
+
+
+</body>
+</html>

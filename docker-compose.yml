@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+
+  mongodb:
+    image: mongo:3.4.3
+    ports:
+    - "27017:27017"
+    hostname:
+      mongodb
+    privileged:
+      true
+    container_name:
+      mongodb
+  mariadb:
+    image: mariadb
+    ports:
+     - "3307:3306"
+    hostname:
+      mariadb
+    privileged:
+      true
+    container_name:
+      mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cars
+
+  elasticsearch:
+    image: elasticsearch:2.4
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    hostname:
+      elasticsearch
+    privileged:
+      true
+    container_name:
+      elasticsearch
+    environment:
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      
+  kibana:
+    image: kibana:4.6.4
+    ports:
+      - "5601:5601"
+    hostname:
+      kibana
+    privileged:
+      true
+    container_name:
+      kibana
+    depends_on:
+      - elasticsearch
+  back:
+    build: ./car-show-back
+    image: mahjoub/ogt-docker-back
+    container_name: back
+    ports:
+      - "9090:9090"
+    environment:
+      WAIT_HOSTS: mariadb:3306, mongodb:27017, elasticsearch:9300
+      WAIT_COMMAND: java -jar -Xmx500m  -Dspring.profiles.active=docker /app/carShow.jar
+      WAIT_HOSTS_TIMEOUT: 180
+
+  front:
+    build: ./car-show-front/
+    image: mahjoub/ogt-docker-front:k8s
+    container_name: front
+    ports:
+      - "5555:5555"
+    command: npm start
+

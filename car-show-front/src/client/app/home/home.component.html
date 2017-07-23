@@ -1,0 +1,122 @@
+<section id="intro" class="m-t-120">
+  <div class="row validationPanel" style="display:none">
+    <div class="container no-padding">
+    </div>
+  </div>
+  <div class="container primary-section-container">
+    <div class="col-md-4">
+      <div class="portlet searchForm searchFormCustom">
+        <div class="portlet-title">
+          <div class="caption custom-title">
+            Search for a car
+          </div>
+        </div>
+        <div class="portlet-body form">
+          <!-- BEGIN FORM-->
+          <form action="#" class="form-horizontal">
+            <div class="form-body">
+              <div class="form-group medecin medecinCustom">
+                <div id="car" class="col-md-12">
+                  <input type="text" class="form-control input-circle typeahead" placeholder="name">
+                </div>
+              </div>
+              <div class="ouSeparator">
+                <span> OU </span>
+              </div>
+
+              <div class="form-group last lastCustom">
+                <div class="col-md-12">
+                  <select id="ddl-languages" name="brand" [(ngModel)]="params.brand"  (change)="onChange($event.target.value)" class="bs-select form-control input-circle" data-live-search="true" data-size="8">
+                     <option>Brand</option>
+                       <option disabled hidden [value]="selectUndefinedOptionValue">Brand</option>
+                      <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="form-group last lastCustom">
+                <div class="col-md-12">
+                  <select id="ddl-languages" name="model" [(ngModel)]="params.model" class="bs-select form-control input-circle" [disabled]="!selectedBrand" data-live-search="true" data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Model</option>
+                      <option *ngFor="let model of models" value="{{model}}">{{model}}</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="form-group last lastCustom">
+                <div class="col-md-12">
+                  <select id="ddl-languages" name="yearMin" [(ngModel)]="params.yearMin" class="bs-select form-control input-circle" data-live-search="true" data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Year min</option>
+                      <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="form-group last lastCustom">
+                <div class="col-md-12">
+                  <select id="ddl-languages" name="yearMax" [(ngModel)]="params.yearMax" class="bs-select form-control input-circle" data-live-search="true" data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Year max</option>
+                      <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="form-group last lastCustom">
+                <div class="col-md-12">
+                  <select id="ddl-languages" name="milesMin" [(ngModel)]="params.milesMin" class="bs-select form-control input-circle" data-live-search="true" data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Miles min</option>
+                      <option *ngFor="let mile of miles" value="{{mile}}">{{mile}}</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="form-group last lastCustom">
+                <div class="col-md-12">
+                  <select id="ddl-languages" name="milesMax" [(ngModel)]="params.milesMax"  class="bs-select form-control input-circle" data-live-search="true" data-size="8">
+                      <option disabled hidden [value]="selectUndefinedOptionValue">Miles max</option>
+                      <option *ngFor="let mile of miles" value="{{mile}}">{{mile}}</option>
+                    </select>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="form-actions">
+              <div class="row">
+                <div class="col-md-offset-3 col-md-9">
+                  <!--onclick="if($('body').scrollTop(0)){hideshowPanelResult(this, 'SearchContentPanel')}"-->
+                  <a href="javascript:;" data-target="result" (click)="search()" class="btn btn-circle btn-sm orange form-submit-btn"><i class="fa fa-search"></i> Chercher
+                  </a>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- END FORM-->
+        </div>
+      </div>
+    </div>
+
+    <div id="SearchContentPanel" class="SearchContentPanel col-md-8">
+
+      <div *ngFor="let car of cars" [routerLink]="['/car-details', car.reference]">
+        <div class="car">
+          <div class="row">
+            <div class="col-md-6">
+              <img class="photos" [src]="car.thumb" />
+            </div>
+            <div class="info" class="col-md-6">
+              <div  class="info"  class="btn btn-link">{{car.name}}</div>
+              <div class="info" >{{car.creatorFirstName+  ' '+car.creatorLastName}}</div>
+              <div class="info">{{car.year}}</div>
+              <span class="date">{{car.creationDate | date: 'dd/MM/yyyy hh:mm:ss' }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<login-component></login-component>
+<subscribe-component></subscribe-component>

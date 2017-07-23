@@ -1,0 +1,29 @@
+<header class="page-header">
+  <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+
+      <div class="collapse navbar-collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+
+          <li>
+            <a id="btn-add-car" class="btn btn-circle orange btn-sm" style="display:none" [routerLink]="['/new']"> Add car </a>
+          </li>
+
+          <li>
+            <a id="btn-home" class="btn btn-circle orange btn-sm" [routerLink]="['/']"> Home </a>
+          </li>
+
+
+          <li class="page-scroll">
+            <a id="btn-Login" class="btn btn-circle orange btn-sm" data-target="#login-component" data-toggle="modal" style="display:none"> Se connecter </a>
+            <a id="btn-Logout" class="btn btn-circle orange btn-sm" (click)="logoutClick()" style="display:none"> Se déconnecter </a>
+            <app-loader id="user-loader" class="small-loader"></app-loader>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

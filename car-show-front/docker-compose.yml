@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  angular-seed:
+    build:
+      context: .
+      dockerfile: ./.docker/angular-seed.development.dockerfile
+    command: npm start
+    container_name: angular-seed-start
+    image: mahjoub/ogt-docker-front
+    networks:
+      - dev-network
+    ports:
+      - '5555:5555'
+
+networks:
+  dev-network:
+    driver: bridge

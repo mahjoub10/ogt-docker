@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: back
+  labels: 
+    visualize: "true"
+    name: back
+spec:
+  replicas: 1
+  selector: 
+    name: back
+  template:
+    metadata:
+      labels:
+        visualize: "true"
+        app: back
+        version: "0.0.1"
+        uses: back
+        name: back
+    spec:
+      containers:
+      - name: back
+        image: mahjoub/ogt-docker-back
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: WAIT_HOSTS
+          value: "mariadb:3306, mongodb:27017, elasticsearch:9300"
+        - name: WAIT_COMMAND
+          value: "java -jar -Xmx500m  -Dspring.profiles.active=docker /app/carShow.jar"
+        - name: WAIT_HOSTS_TIMEOUT
+          value: "180"
+        ports:
+        - containerPort: 9090
